@@ -10,7 +10,13 @@ const routes = [
   },
   {
     path: '/recommend',
-    component: () => import('components/recommend/recommend')
+    component: () => import('components/recommend/recommend'),
+    children: [
+      {
+        path: ':id',
+        component: () => import('components/disc/disc')
+      }
+    ]
   },
   {
     path: '/singer',
@@ -21,6 +27,30 @@ const routes = [
         component: () => import('components/singer-detail/singer-detail')
       }
     ]
+  },
+  {
+    path: '/rank',
+    component: () => import('components/rank/rank'),
+    children: [
+      {
+        path: ':id',
+        component: () => import('components/top-list/top-list')
+      }
+    ]
+  },
+  {
+    path: '/search',
+    component: () => import('components/search/search'),
+    children: [
+      {
+        path: ':id',
+        component: () => import('components/singer-detail/singer-detail')
+      }
+    ]
+  },
+  {
+    path: '/user',
+    component: () => import('components/user-center/user-center')
   }
 ]
 
